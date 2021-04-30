@@ -1,0 +1,4 @@
+package validateSubsequence
+
+class Solution {
+}
