@@ -1,22 +1,22 @@
 package sortedSquaredArray
 
-fun sortedSquareArraySolution(array: List<Int>): List<Int> {
-    val output = array.map { _ -> 0 }.toMutableList()
+fun sortedSquareArraySolutionThree(array: List<Int>): List<Int> {
+    val output = mutableListOf<Int>()
     var smallIndex = 0
     var largeIndex = array.size - 1
 
-    for (index in array.size - 1 downTo 0) {
+    while(smallIndex <= largeIndex) {
         val smallerValue = array[smallIndex]
         val largerValue = array[largeIndex]
 
         if(Math.abs(smallerValue) > Math.abs(largerValue)) {
-            output[index] = smallerValue * smallerValue
+            output.add(smallerValue * smallerValue)
             smallIndex++
         } else {
-            output[index] = largerValue * largerValue
+            output.add(largerValue * largerValue)
             largeIndex--
         }
     }
 
-    return output
+    return output.asReversed()
 }
